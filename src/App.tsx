@@ -2,8 +2,6 @@ import ToolBar from './components/ToolBar/ToolBar.tsx';
 import React from 'react';
 import Home from './containers/Home/Home.tsx';
 import { Route, Routes } from 'react-router-dom';
-import About from './containers/About/About.tsx';
-import Contacts from './containers/Contacts/Contacts.tsx';
 import { Typography } from '@mui/material';
 import Edit from './containers/Edit/Edit.tsx';
 import NewPost from './containers/NewPost/NewPost.tsx';
@@ -21,9 +19,8 @@ const App = () => {
           <div className="row">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/About" element={<About/>}/>
-              <Route path="/contacts" element={<Contacts/>}/>
-              <Route path="/games/new-game" element={<NewPost />} />
+              <Route path="/quote" element={<Home />} />
+              <Route path="/quote/newquote" element={<NewPost />} />
               <Route path="/games/:idGame/edit" element={<Edit />} />
               <Route path="*" element={<Typography variant="h1"> Not Found</Typography>} />
             </Routes>

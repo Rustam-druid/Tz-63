@@ -11,9 +11,7 @@ const ToolBar = () => {
 My Blog
           </Typography>
           <Button color='inherit' to='/' component={NavLink}>Home</Button>
-          <Button color='inherit' to='/games/new-game'  component={NavLink}>Add</Button>
-          <Button color='inherit' to='/about'  component={NavLink}>about</Button>
-          <Button color='inherit' to='/contacts'  component={NavLink}>Contacts</Button>
+          <Button color='inherit' to='/quote/newquote'  component={NavLink}>Add</Button>
         </Toolbar>
       </AppBar>
     </Box>

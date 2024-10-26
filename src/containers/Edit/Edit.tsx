@@ -19,8 +19,8 @@ const [game,setGame]=useState<IPost>();
 
 
 useEffect(() =>{
-  if(params.idGame){
-  void fetchOneGame(params.idGame);
+  if(params.idForm){
+  void fetchOneGame(params.idForm);
   }
 }, [params.idForm , fetchOneGame]);
 
@@ -28,8 +28,8 @@ useEffect(() =>{
   const submitForm = async (game:IForm) => {
 
     try{
-      if (params.idGame){
-        await axiosApi.put(`games/${params.idGame}.json`, {...game});
+      if (params.idForm){
+        await axiosApi.put(`games/${params.idForm}.json`, {...game});
         navigate('/');
       }
     }catch(err){

@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import axiosApi from '../../axiosAPL.ts';
 import { IPost, IGameAPI } from '../../types';
-import { Button, Card, CardActions, CardContent, Typography } from '@mui/material';
+import { Button, Card, CardActions, CardContent, ListItemButton, ListItemText, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import Grid from '@mui/material/Grid2';
 
@@ -28,10 +28,28 @@ const Home = () => {
 
   return (
     <>
+      <Grid container spacing={2} sx={{justifyContent: 'space-between'}}>
+        <Grid  sx={{width:'200'}} >
+        <ListItemButton component="a" href="#simple-list">
+          <ListItemText primary="All" />
+        </ListItemButton>  <ListItemButton component="a" href="#simple-list">
+          <ListItemText primary="Star Wars" />
+        </ListItemButton> <ListItemButton component="a" href="#simple-list">
+          <ListItemText primary="Famous people" />
+        </ListItemButton> <ListItemButton component="a" href="#simple-list">
+          <ListItemText primary="Saying" />
+        </ListItemButton> <ListItemButton component="a" href="#simple-list">
+          <ListItemText primary="Humour" />
+        </ListItemButton><ListItemButton component="a" href="#simple-list">
+          <ListItemText primary="Motivational" />
+        </ListItemButton>
+        </Grid>
+
+
       {games.length === 0 ? <p>no post</p> :
         <Grid container spacing={2}>
           {games.map((game) => (
-            <Grid key={game.id}>
+            <Grid key={game.id}  sx={{width:'100%', border:3} }>
               <Card sx={{ minWidth: 275 }}>
                 <CardContent>
                   <Typography variant="body2" sx={{ color: 'text.secondary', fontSize: 15 }}>
@@ -45,8 +63,10 @@ const Home = () => {
               </Card>
             </Grid>
           ))}
+
         </Grid>
       }
+      </Grid>
     </>
   );
 };
