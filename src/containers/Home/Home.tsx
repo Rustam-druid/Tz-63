@@ -33,7 +33,7 @@ const Home = () => {
       <Grid container spacing={2} sx={{justifyContent: 'space-between'}}>
         <Grid sx={{width: '200'}}>
           <Button sx={{backgroundColor: 'white', color: 'black', border: 'black'}} variant="contained"
-                  size="small" component={NavLink} to='/quote/newquote'>Del</Button>
+                  size="small" component={NavLink} to='/quote/items'>Star Wars</Button>
         </Grid>
 
 

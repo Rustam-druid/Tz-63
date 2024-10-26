@@ -6,6 +6,7 @@ import { Typography } from '@mui/material';
 import Edit from './containers/Edit/Edit.tsx';
 import NewPost from './containers/NewPost/NewPost.tsx';
 import Delete from './containers/Delete/Delete.tsx';
+import Items from './containers/Items/Items.tsx';
 
 const App = () => {
 

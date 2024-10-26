@@ -114,13 +114,6 @@ const Form:React.FC<Props> = ({gameToEdit, submitForm}) => {
       </Grid>
 
 
-
-
-
-
-
-
-
     </form>
   );
 };
