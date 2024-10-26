@@ -4,8 +4,8 @@ import { IForm } from '../../types';
 import axiosApi from '../../axiosAPL.ts';
 
 const NewPost = () => {
-  const submitForm = async (game:IForm) => {
-     await axiosApi.post('post.json', {...game});
+  const submitForm = async (post:IForm) => {
+     await axiosApi.post('quote.json', {...post});
   }
 
   return (

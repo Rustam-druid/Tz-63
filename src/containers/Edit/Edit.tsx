@@ -5,15 +5,15 @@ import { IPost, IForm } from '../../types';
 import axiosApi from '../../axiosAPL.ts';
 
 const Edit = () => {
-const [game,setGame]=useState<IPost>();
+const [post,setPost]=useState<IPost>();
   const params = useParams<{ idForm: string }>();
   const navigate = useNavigate();
 
   const fetchOneGame = useCallback(async (id:string) => {
-    const response: {data:IPost} =  await axiosApi<IPost>(`post/${id}.json`);
+    const response: {data:IPost} =  await axiosApi<IPost>(`quote/${id}.json`);
 
     if (response.data){
-      setGame(response.data);
+      setPost(response.data);
     }
   } , []);
 
@@ -25,11 +25,11 @@ useEffect(() =>{
 }, [params.idForm , fetchOneGame]);
 
 
-  const submitForm = async (game:IForm) => {
+  const submitForm = async (post:IForm) => {
 
     try{
       if (params.idForm){
-        await axiosApi.put(`games/${params.idForm}.json`, {...game});
+        await axiosApi.put(`games/${params.idForm}.json`, {...post});
         navigate('/');
       }
     }catch(err){
@@ -39,7 +39,7 @@ console.error(err);
 
   return (
     <div>
-      <Form gameToEdit={game} submitForm={submitForm} />
+      <Form gameToEdit={post} submitForm={submitForm} />
     </div>
   );
 };

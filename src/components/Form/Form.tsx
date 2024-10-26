@@ -4,15 +4,14 @@ import { Button, TextField, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 
 const initialForm = {
-  name:'',
+  Category:'',
+  author:'',
   description:'',
-  platform:'',
-  price:0,
 };
 
 interface Props{
   gameToEdit?: IForm;
-  submitForm: {game:IForm};
+  submitForm: {post:IForm};
 }
 
 const Form:React.FC<Props> = ({gameToEdit, submitForm}) => {
@@ -32,13 +31,13 @@ const onChangeFiled = (e: React.ChangeEvent<HTMLInputElement>)=> {
   setForm(prevState => ({
     ...prevState,
       [name]:value
-  } ))
-}
+  } ));
+};
 
   const onSubmitForm =async  (e: React.FormEvent<HTMLFormElement>) => {
 e.preventDefault();
 
-    submitForm({...form, price: Number(form.price) })
+    submitForm({...form })
 
 if (!gameToEdit){
   setForm({...initialForm});
@@ -48,7 +47,7 @@ if (!gameToEdit){
   return (
     <form onSubmit={onSubmitForm}>
       <Typography variant="h4"  sx={{ flexGrow: 1, textAlign: 'center' }}>
-        {gameToEdit ? `Edit` : 'Add new'}  post
+        {gameToEdit ? `Edit` : 'Submit new'}  quote
       </Typography>
 
       <Grid container spacing={2} sx={{ mx: 'auto', width: '50%', mt:4 }}>
@@ -56,13 +55,23 @@ if (!gameToEdit){
           <TextField
             sx={{width:'100%'}}
             id="outlined-basic"
-            label="Name"
-            name="name"
+            label="Category"
+            name="category"
             variant="outlined"
-            value={form.name}
+            value={form.category}
           onChange={onChangeFiled}
           />
         </Grid>
+
+        <Grid size={12}>
+          <TextField
+            sx={{width:'100%'}}
+            id="outlined-basic"
+          label="Author"
+          name="author"
+          variant="outlined"
+          value={form.author}
+            onChange={onChangeFiled}/></Grid>
 
         <Grid size={12}>
           <TextField

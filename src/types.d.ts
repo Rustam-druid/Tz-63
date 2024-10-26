@@ -1,14 +1,8 @@
-export interface IDish {
-  id: string;
-  name: string;
-  description: string;
-}
 
 export interface IForm {
-  name:string,
+ category:string;
   description:string,
-  platform:string,
-  price:string,
+  author:string,
 }
 
 export interface IPost {
