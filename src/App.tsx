@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import Edit from './containers/Edit/Edit.tsx';
 import NewPost from './containers/NewPost/NewPost.tsx';
+import Delete from './containers/Delete/Delete.tsx';
 
 const App = () => {
 
@@ -21,7 +22,8 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/quote" element={<Home />} />
               <Route path="/quote/newquote" element={<NewPost />} />
-              <Route path="/games/:idGame/edit" element={<Edit />} />
+              <Route path="/quote/:idPost/edit" element={<Edit />} />
+              <Route path="/quote/:idPost/delete" element={<Delete />} />
               <Route path="*" element={<Typography variant="h1"> Not Found</Typography>} />
             </Routes>
           </div>

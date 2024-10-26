@@ -5,6 +5,8 @@ import { Button, Card, CardContent, ListItemButton, ListItemText, Typography } f
 import { NavLink } from 'react-router-dom';
 import Grid from '@mui/material/Grid2';
 
+
+
 const Home = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
 
@@ -29,42 +31,38 @@ const Home = () => {
   return (
     <>
       <Grid container spacing={2} sx={{justifyContent: 'space-between'}}>
-        <Grid  sx={{width:'200'}} >
-        <ListItemButton component="a" href="#simple-list">
-          <ListItemText primary="All" />
-        </ListItemButton>  <ListItemButton component="a" href="#simple-list">
-          <ListItemText primary="Star Wars" />
-        </ListItemButton> <ListItemButton component="a" href="#simple-list">
-          <ListItemText primary="Famous people" />
-        </ListItemButton> <ListItemButton component="a" href="#simple-list">
-          <ListItemText primary="Saying" />
-        </ListItemButton> <ListItemButton component="a" href="#simple-list">
-          <ListItemText primary="Humour" />
-        </ListItemButton><ListItemButton component="a" href="#simple-list">
-          <ListItemText primary="Motivational" />
-        </ListItemButton>
+        <Grid sx={{width: '200'}}>
+          <Button sx={{backgroundColor: 'white', color: 'black', border: 'black'}} variant="contained"
+                  size="small" component={NavLink} to='/quote/newquote'>Del</Button>
         </Grid>
 
 
-      {posts.length === 0 ? <p>no post</p> :
-        <Grid container spacing={2}>
-          {posts.map((game) => (
-            <Grid key={game.id}  sx={{width:'100%', border:3} }>
-              <Card sx={{ minWidth: 275 }}>
-                <CardContent>
-<Grid container spacing={2} sx={{justifyContent: 'space-between'}}>
-                  <Typography gutterBottom sx={{ fontSize: 19 }}>
-                    {game.description}
-                  </Typography>
-                  <Button sx={{ backgroundColor: 'white', color: 'black', border: 'black' }} variant="contained" size="small" component={NavLink} to={`/games/${game.id}/edit`}>Edit</Button>
-</Grid>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
+        {posts.length === 0 ? <p>no post</p> :
+          <Grid container spacing={2}>
+            <h1>all</h1>
+            {posts.map((game) => (
+              <Grid key={game.id} sx={{width: '100%', border: 3}}>
+                <Card sx={{minWidth: 275}}>
+                  <CardContent>
+                    <Grid container spacing={2} sx={{justifyContent: 'space-between'}}>
+                      <Typography gutterBottom sx={{fontSize: 19}}>
+                        {game.description}
+                      </Typography>
+                      <div>
+                        <Button sx={{backgroundColor: 'white', color: 'black', border: 'black' , mr:2}} variant="contained"
+                                size="small" component={NavLink} to={`/quote/${game.id}/edit`}>Edit</Button>
+                        <Button sx={{backgroundColor: 'white', color: 'black', border: 'black'}} variant="contained"
+                                size="small" component={NavLink}  to={`/quote/${game.id}/delete`}>Del</Button>
+                      </div>
 
-        </Grid>
-      }
+                    </Grid>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+
+          </Grid>
+        }
       </Grid>
     </>
   );
